@@ -1,0 +1,24 @@
+{
+  "ver": "0.1",
+  "info": {
+    "id": "",
+    "name": "",
+    "description": "",
+    "tags": []
+  },
+  "renderpass": [
+    {
+      "inputs": [],
+      "outputs": [
+        {
+          "id": "4dfGRr",
+          "channel": 0
+        }
+      ],
+      "code": "// Welcome! This is a Shadertoy-style shader.\n// mainImage runs once for each pixel, every frame.\n// Try changing a number, then watch the preview on the right.\n\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\n{\n    \n}\n",
+      "name": "Image",
+      "description": "",
+      "type": "image"
+    }
+  ]
+}
