@@ -12,6 +12,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord)
 
     uv += iTime * 0.125;
     uv -= mouse;
+    uv *= 3.;
 
     vec3 color;
     for (int ch = 0; ch < 3; ch++) {
@@ -19,8 +20,8 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord)
         for (int octave = 0; octave < 8; octave++) {
             float product = 0.;
             product += sin((uv[0] + uv[1] * 4. + float(ch * 256)) * pow(E + cos(iTime) / 512., float(octave)));
-            product -= cos((uv[1] - uv[0] * 4. + float(ch * 256)) * pow(E, float(octave)));
-            sum += product * pow(2., float(-octave));
+            product -= cos((uv[1] - uv[0] * 4. + float(ch * 256)) * pow(E + sin(iTime) / 256., float(octave)));
+            sum += product * pow(2., float(-octave) + sin(iTime) / 512.);
         }
         sum = (sum + 2.) / 4.;
         color[ch] = sum;
