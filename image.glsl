@@ -29,5 +29,6 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord)
     //     d2[axis] = left + right - ph * 2.;
     // }
 
-    fragColor.r = ph;
+
+    fragColor.gb = vec2(ph);
 }
