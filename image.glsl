@@ -14,7 +14,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord)
     vec2 point = uv * 4. - 2.;
     float ph = height(point);
 
-    if (isnan(height(point))) {
+    if (isnan(ph)) {
         //fragColor.rgb = vec3(0);
         return;
     }
@@ -24,7 +24,11 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord)
         vec2 delta;
         delta[axis] = 1.;
         delta *= 0.01;
-        float left = height(point - delta);
-        float right = height(point + delta);
+        float left = max(0., height(point - delta));
+        float right = max(0., height(point + delta));
+        d2[axis] = left + right - ph * 2.;
     }
+    d2 = normalize(d2);
+
+    fragColor.g = d2.x + d2.y;
 }
