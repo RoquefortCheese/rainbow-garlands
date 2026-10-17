@@ -17,6 +17,9 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord)
         return;
     }
 
-    fragColor.rb = vec2(0);
-    fragColor.g = height(point);
+    vec2 d2;
+    for (int axis = 0; axis < 2; axis++) {
+        vec2 delta;
+        
+    }
 }
