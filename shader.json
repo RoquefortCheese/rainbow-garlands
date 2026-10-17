@@ -15,7 +15,7 @@
           "channel": 0
         }
       ],
-      "code": "// Welcome! This is a Shadertoy-style shader.\n// mainImage runs once for each pixel, every frame.\n// Try changing a number, then watch the preview on the right.\n\nconst float E = 2.718281828459045235360287471352;\n\nvoid mainImage(out vec4 fragColor, in vec2 fragCoord)\n{\n    vec2 px = 1. / iResolution.xy;\n    vec2 uv = fragCoord * px;\n\n    vec3 color;\n    for (int ch = 0; ch < 3; ch++) {\n        vec2 shift = vec2(ch);\n        float sum = 0;\n        for (int octave = 0; octave < 8; octave++) {\n            for (int axis = 0; axis < 2; axis++) {\n                \n            }\n        }\n    }\n}\n",
+      "code": "// Welcome! This is a Shadertoy-style shader.\n// mainImage runs once for each pixel, every frame.\n// Try changing a number, then watch the preview on the right.\n\nconst float E = 2.718281828459045235360287471352;\n\nvoid mainImage(out vec4 fragColor, in vec2 fragCoord)\n{\n    vec2 px = 1. / iResolution.xy;\n    vec2 uv = fragCoord * px;\n\n    vec3 color;\n    for (int ch = 0; ch < 3; ch++) {\n        float sum = 0;\n        for (int octave = 0; octave < 8; octave++) {\n            for (int axis = 0; axis < 2; axis++) {\n                sum += sin((uv[axis] + float(ch)) * pow(E, float(octave))) * pow(2, -octave);\n            }\n        }\n        sum = (sum + 2.) / 4.;\n    }\n}\n",
       "name": "Image",
       "description": "",
       "type": "image"
