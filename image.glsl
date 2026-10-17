@@ -13,13 +13,13 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord)
 
     vec2 point = uv * 4. - 2.;
     if (isnan(height(point))) {
-        fragColor.rgb = vec3(0);
+        //fragColor.rgb = vec3(0);
         return;
     }
 
     vec2 d2;
     for (int axis = 0; axis < 2; axis++) {
         vec2 delta;
-        
+        delta[axis] = px[axis];
     }
 }
