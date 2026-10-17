@@ -27,10 +27,11 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord)
         color[ch] = pow(sum, 3.);
     }
 
+    float len = length(color);
     float mi = min(color.r, min(color.g, color.b));
     float ma = max(color.r, max(color.g, color.b));
     color = (color - mi) / (ma - mi);
-    color /= length(color);
+    color /= sqrt(len);
 
     fragColor.rgb = color;
 }
