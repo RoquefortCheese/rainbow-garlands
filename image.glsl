@@ -8,7 +8,9 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord)
 {
     vec2 px = 1. / iResolution.xy;
     vec2 uv = fragCoord * px;
-    uv += iTime * 0.125;
+    vec2 mouse = iMouse.xy * px;
+
+    uv += iTime * 0.125 - mouse;
 
     vec3 color;
     for (int ch = 0; ch < 3; ch++) {
