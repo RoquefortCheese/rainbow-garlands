@@ -21,10 +21,10 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord)
             float product = 0.;
             product += sin((uv[0] + uv[1] * 4. + float(ch * 256)) * pow(E + cos(iTime) / 512., float(octave)));
             product -= cos((uv[1] - uv[0] * 4. + float(ch * 256)) * pow(E + sin(iTime) / 256., float(octave)));
-            sum += product * pow(2., float(-octave) + sin(iTime) / 4.);
+            sum += product * pow(2., float(-octave) + sin(iTime) / 8.);
         }
-        sum = (sum + 2.) / 4.;
-        color[ch] = sum;
+
+        color[ch] = pow(sum, 0.5);
     }
 
     float mi = min(color.r, min(color.g, color.b));
