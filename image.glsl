@@ -10,7 +10,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord)
     vec2 uv = fragCoord * px;
     vec2 mouse = iMouse.xy * px;
 
-    uv += iTime * 0.125;
+    uv += iTime * 0.25;
     uv -= mouse;
     uv *= 3.;
 
@@ -21,15 +21,16 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord)
             float product = 0.;
             product += sin((uv[0] + uv[1] * 4. + float(ch * 256)) * pow(E + cos(iTime) / 512., float(octave)));
             product -= cos((uv[1] - uv[0] * 4. + float(ch * 256)) * pow(E + sin(iTime) / 256., float(octave)));
-            sum += product * pow(2., float(-octave) + sin(iTime) / 8.);
+            sum += product * pow(1.7, float(-octave) + sin(iTime) / 8.);
         }
 
-        color[ch] = pow(sum, 0.5);
+        color[ch] = pow(sum, 3.);
     }
 
     float mi = min(color.r, min(color.g, color.b));
     float ma = max(color.r, max(color.g, color.b));
     color = (color - mi) / (ma - mi);
+    color /= length(color);
 
     fragColor.rgb = color;
 }
