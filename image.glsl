@@ -28,7 +28,6 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord)
         float right = max(0., height(point + delta));
         d2[axis] = left + right - ph * 2.;
     }
-    d2 = normalize(d2) * 100.;
 
-    fragColor.g = atan(d2.y, d2.x);
+    fragColor.g = d2.x;
 }
