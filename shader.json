@@ -15,7 +15,7 @@
           "channel": 0
         }
       ],
-      "code": "// Welcome! This is a Shadertoy-style shader.\n// mainImage runs once for each pixel, every frame.\n// Try changing a number, then watch the preview on the right.\n\nfloat height(vec2 point) {\n    return length(point)\n}\n\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\n{\n\n}\n",
+      "code": "// Welcome! This is a Shadertoy-style shader.\n// mainImage runs once for each pixel, every frame.\n// Try changing a number, then watch the preview on the right.\n\nfloat height(vec2 point) {\n    return sqrt(1. - pow(point.x, 2.) - pow(point.y, 2.));\n}\n\nvoid mainImage(out vec4 fragColor, in vec2 fragCoord)\n{\n    vec2 px = 1. / iResolution.xy;\n    vec2 uv = fragCoord * px;\n\n    vec2 point = \n}\n",
       "name": "Image",
       "description": "",
       "type": "image"
