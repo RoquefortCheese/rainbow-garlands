@@ -19,15 +19,15 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord)
         return;
     }
 
-    vec2 d2;
-    for (int axis = 0; axis < 2; axis++) {
-        vec2 delta;
-        delta[axis] = 1.;
-        delta *= 0.1;
-        float left = max(0., height(point - delta));
-        float right = max(0., height(point + delta));
-        d2[axis] = left + right - ph * 2.;
-    }
+    // vec2 d2;
+    // for (int axis = 0; axis < 2; axis++) {
+    //     vec2 delta;
+    //     delta[axis] = 1.;
+    //     delta *= 0.1;
+    //     float left = max(0., height(point - delta));
+    //     float right = max(0., height(point + delta));
+    //     d2[axis] = left + right - ph * 2.;
+    // }
 
-    fragColor.g = d2.x;
+    fragColor.r = ph;
 }
