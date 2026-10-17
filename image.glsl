@@ -23,12 +23,12 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord)
     for (int axis = 0; axis < 2; axis++) {
         vec2 delta;
         delta[axis] = 1.;
-        delta *= 0.01;
+        delta *= 0.1;
         float left = max(0., height(point - delta));
         float right = max(0., height(point + delta));
         d2[axis] = left + right - ph * 2.;
     }
-    d2 = normalize(d2);
+    d2 = normalize(d2) * 100.;
 
-    fragColor.g = d2.x + d2.y;
+    fragColor.g = atan(d2.y, d2.x);
 }
